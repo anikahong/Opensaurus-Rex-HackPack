@@ -1,3 +1,4 @@
+// GROUP 2 SOLVED
 // Copyright (c) 2014 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
@@ -566,8 +567,7 @@
                 }
 
                 var playAchievementSound = this.distanceMeter.update(deltaTime,
-                    /* GROUP2: Math.ceil isn't operating on anything. Add this.distanceRan between the parentheses */
-                    Math.ceil());
+                    Math.ceil(this.distanceRan));
 
                 if (playAchievementSound) {
                     this.playSound(this.soundFx.SCORE);
@@ -792,8 +792,7 @@
             // Update the high score.
             if (this.distanceRan > this.highestScore) {
                 this.highestScore = Math.ceil(this.distanceRan);
-                /* GROUP2: What's a game without a high score? Insert this.highestScore between the parentheses */
-                this.distanceMeter.setHighScore();
+                this.distanceMeter.setHighScore(this.highestScore);
             }
 
             // Reset the time clock.
@@ -1860,9 +1859,8 @@
         this.canvasCtx = canvas.getContext('2d');
         this.image = Runner.imageSprite;
         this.spritePos = spritePos;
-        /* GROUP2: These are completely unreasonable coordinates. Change this.x to 0 and this.y to 5*/
-        this.x = 10000;
-        this.y = 10000; 
+        this.x = 0;
+        this.y = 5;
 
         this.currentDistance = 0;
         this.maxScore = 0;
@@ -2069,8 +2067,7 @@
                 }
             }
 
-            /* GROUP2: There's no way to see your high score! Oh no! Uncomment the next line! */
-            //this.drawHighScore();
+            this.drawHighScore();
             return playSound;
         },
 
